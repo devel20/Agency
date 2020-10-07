@@ -38,5 +38,31 @@ $(window).scroll(function() {
     });
 });
 
-// ******************************************************
+// Табы****************************************************
+jQuery(document).ready(function($) {
+var fActive = '';
+ 
+function filter(tabs){
+ if(fActive != tabs){
+ $('.tabs-content__item').filter('.'+tabs).addClass('tabs-content__item-active');
+ $('.tabs-content__item').filter(':not(.'+tabs+')').removeClass('tabs-content__item-active');
+ fActive = tabs;
+ }
+}
+ 
+$('.tabs-nav__item_1').click(function(){ filter('tabs-content__item_1'); });
+$('.tabs-nav__item_2').click(function(){ filter('tabs-content__item_2'); });
+$('.tabs-nav__item_3').click(function(){ filter('tabs-content__item_3'); });
+$('.tabs-nav__item_4').click(function(){ filter('tabs-content__item_4'); });
+ 
+$('.tabs-nav__item_all').click(function(){
+ $('.tabs-content__item').addClass('tabs-content__item-active');
+ fActive = 'all';
+});
+
+$('.tabs-nav__item_all').click(); 
+});
+
+
+
 

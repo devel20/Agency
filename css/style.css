@@ -225,8 +225,6 @@ body {
 	bottom: -30px;
 	left: calc(50% - 66px);
 }
-.feature__tabs {}
-.tabs {}
 .tabs__nav {
 	font-size: 22px;
 	font-weight: 600;
@@ -236,8 +234,12 @@ body {
 	justify-content: center;
 	margin: 86px 0 65px 0;
 }
-.tabs-nav {}
 .tabs-nav__item {
+	border: none;
+	background-color: transparent;
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 22px;
 	margin: 0 53px 0 0;
 	cursor: pointer;
 	transition: 0.3s;
@@ -245,19 +247,32 @@ body {
 .tabs-nav__item:last-child {
 	margin: 0;
 }
-.tabs-nav__item_active {
+.tabs-nav__item {
 	color: #ff3b3b;
 }
 .tabs-nav__item:hover {
 	color: #ff3b3b;
 }
-.tabs__content {
+.tabs-content {
 	display: grid;
 	grid-template-columns: 290px 290px 290px 290px;
 	grid-column-gap: 16px;
 	grid-row-gap: 16px;
 	justify-content: center;
 }
+.tabs-content__item {
+	width: 290px;
+	height: 290px;
+	display: none;
+}
+.tabs-content__item img {
+	width: 100%;
+	height: 100%;
+}
+.tabs-content__item-active {
+	display: block;
+}
+
 .tab {
 	cursor: pointer;
 	width: 290px;
@@ -516,9 +531,10 @@ body {
 /*---------------------------------------------------------------*/
 
 @media (max-width: 1230px) {
-	.tabs__content  {
+	.tabs-content  {
 		grid-template-columns: 290px 290px 290px;
 	}
+
 	/*-------------*/
 	.team__photo {
 		display: none;
@@ -580,7 +596,10 @@ body {
     	margin: 0 20px 20px 0;
     	font-size: 18px;
 	}
-	.tabs__content  {
+	.tabs-nav__item:last-child {
+		margin: 0 0 20px 0;
+	}
+	.tabs-content  {
 		grid-template-columns: 290px 290px;
 	}
 }
@@ -716,28 +735,35 @@ body {
 	.feature__wrap {
 		width: 80%;
 	}
+
+	.tabs__nav {
+		flex-direction: column;
+		margin: 50px 0 10px 0;
+	}
 	.tabs-nav__item {
-		display: block;
 		text-align: center;
 		margin: 0 0 20px 0;
 	}
-	.tabs__content {
+	.tabs-content {
 		grid-template-columns: 220px 220px;
 	}
-	.tab {
+	.tabs-content__item {
 		width: 100%;
 		height: 220px;
 	}
 
 	/*---------------------*/
 	.team {
-    	margin: 30px 0 30px 0;
+    	margin: 50px 0 30px 0;
 	}
 	.team__head {
 		width: 100%;
 	}
 	.team__title {
 		font-size: 30px;
+	}
+	.team__body {
+		padding: 50px 0 0 0;
 	}
 	.item__gallery {
 		width: 400px;
@@ -761,7 +787,7 @@ body {
 
 	/*----------------------*/
 	.get-in {
-		margin: 30px 0;
+		margin: 50px 0;
 	}
 	.get-in__title {
 		font-size: 28px;
@@ -777,7 +803,7 @@ body {
 	.get-in__contacts {
 		width: 100%;
 		padding: 20px 20px;
-		margin: 30px 0 0 0;
+		margin: 50px 0 0 0;
 	}
 	.get-in__form {
 		width: 100%;
@@ -815,14 +841,21 @@ body {
 
 /*-----------------------------------*/
 @media (max-width: 470px){ 
-	.tabs__content {
+	.tabs-content {
 		grid-template-columns: 300px;
 	}
 	.tab {
 		width: 100%;
 		height: 300px;
 	}
+
+	/*----------------*/
+	.subscribe__form input, .subscribe__form button {
+		width: 100%;
+	}
+
 }
+
 
 
 
